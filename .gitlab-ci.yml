@@ -1,0 +1,9 @@
+# ini function deploy branch live / production
+deploy_production:
+  stage: deploy
+  script:
+    # clone pertama
+    #- ssh -i $PRIV_KEY $USER_SSH@$IP_SERVER_AI "cd $FOLDER_AI && git clone http://$USER_GIT:$PASS_GIT@devops.erlangga.id/P2233/cmserklika.git"
+     - ssh -i $PRIV_KEY $USER_SSH@$IP_SERVER_AI "cd $FOLDER_AI/cmserklika && git stash && git pull origin main"
+  only:
+  - main
